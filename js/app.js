@@ -34,6 +34,8 @@ const trainers = [
 ];
 
 let trainerHtml = document.getElementById("trainer");
+let selectedTrainers = [];
+let pokemonsBattle = [];
 
 trainerHtml.innerHTML = `
     ${trainers.map((t, i) => `
@@ -53,9 +55,40 @@ function selectTrainer(el) {
     let pokemons = trainers[index].pokemons;
     let pokemon = pokemons[Math.floor(Math.random() * pokemons.length)];
 
-    console.log(pokemon);
+    // Verify index is part of selectedTrainers use "return;" (indexOf)
+    // Add trainer index in selectedTrainers with array.push(...);
+    // Add class "active" to div.trainer
+
+    // Verify that we have enough trainers to start the battle
+    
 }
 
+function startBattle() {
+    let isBattle = true;
+    let round = 0;
+    let a, d;
+
+    while (isBattle) {
+        if (round % 2 === 0) {
+            a = 0;
+            d = 1;
+        } else {
+            a = 1;
+            d = 0;
+        }
+
+        let attacker = pokemonsBattle[a];
+        let defender = pokemonsBattle[d];
+
+        // Les pokémons se battent
+        // onyx.hp -= pika.attack
+
+        // When a pokemon reach 0hp or lower, stop the battle
+        isBattle = false;
+
+        round++;
+    }
+}
 
 /*for (let i = 0; i < trainers.length; i++) {
     let trainer = trainers[i];
