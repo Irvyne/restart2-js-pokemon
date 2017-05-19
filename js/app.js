@@ -36,8 +36,8 @@ const trainers = [
 let trainerHtml = document.getElementById("trainer");
 
 trainerHtml.innerHTML = `
-    ${trainers.map(t => `
-        <div>
+    ${trainers.map((t, i) => `
+        <div class="trainer col-md-4" onclick="selectTrainer(this)" data-index="${i}">
             <h2>${t.name}</h2>
             <ul>
                 ${t.pokemons.map(p => `
@@ -47,6 +47,15 @@ trainerHtml.innerHTML = `
         </div>
     `).join('')}
 `;
+
+function selectTrainer(el) {
+    let index = el.getAttribute("data-index");
+    let pokemons = trainers[index].pokemons;
+    let pokemon = pokemons[Math.floor(Math.random() * pokemons.length)];
+
+    console.log(pokemon);
+}
+
 
 /*for (let i = 0; i < trainers.length; i++) {
     let trainer = trainers[i];
