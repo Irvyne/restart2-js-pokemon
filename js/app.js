@@ -33,15 +33,40 @@ const trainers = [
     }
 ];
 
-for (let i = 0; i < trainers.length; i++) {
+let trainerHtml = document.getElementById("trainer");
+
+trainerHtml.innerHTML = `
+    ${trainers.map(t => `
+        <div>
+            <h2>${t.name}</h2>
+            <ul>
+                ${t.pokemons.map(p => `
+                    <li>${p.name}</li>
+                `).join('')}
+            </ul>
+        </div>
+    `).join('')}
+`;
+
+/*for (let i = 0; i < trainers.length; i++) {
     let trainer = trainers[i];
 
-    console.log(trainer.name);
+    let trainerBox = document.createElement("div");
+    let trainerName = document.createElement("h2");
+    let trainerList = document.createElement("ul");
+    trainerName.textContent = trainer.name;
+
+    trainerBox.appendChild(trainerName);
+    trainerBox.appendChild(trainerList);
 
     for (let j = 0; j < trainer.pokemons.length; j++) {
         let pokemon = trainer.pokemons[j];
+        let pokemonElement = document.createElement("li");
 
-        //console.log('    ' + pokemon.name + ' de type ' + pokemon.type);
-        console.log(`    ${pokemon.name} de type ${pokemon.type}`);
+        pokemonElement.textContent = `    ${pokemon.name} de type ${pokemon.type}`;
+
+        trainerList.appendChild(pokemonElement);
     }
-}
+
+    trainerHtml.appendChild(trainerBox);
+}*/
